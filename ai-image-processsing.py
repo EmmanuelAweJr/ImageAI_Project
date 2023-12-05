@@ -4,10 +4,10 @@ import os
 execution_path =os.getcwd()
 
 prediction = ImageClassification()
-prediction.setModelTypeAsMobileNetV2()
-prediction.setModelPath(os.path.join(execution_path, "mobilenet_v2-b0353104.pth"))
+prediction.setModelTypeAsDenseNet121()
+prediction.setModelPath(os.path.join(execution_path, "densenet121-a639ec97.pth"))
 prediction.loadModel()
 
-predictions, probabilities = prediction.classifyImage(os.path.join(execution_path, "DOve.jpeg"), result_count=5 )
+predictions, probabilities = prediction.classifyImage(os.path.join(execution_path, "giraffe.jpg"), result_count=5 )
 for eachPrediction, eachProbability in zip(predictions, probabilities):
     print(eachPrediction, " : " , eachProbability)
